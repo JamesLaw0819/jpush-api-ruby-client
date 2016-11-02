@@ -54,7 +54,8 @@ module JPush
 
         def initialize(http_code, error_code, error_message)
           @http_code, @error_code, @error_message = http_code, error_code, error_message
-          @error_message = "UnknownError[#{@http_code}]." if @error_message.blank?
+          # @error_message = "UnknownError[#{@http_code}]." if @error_message.blank?
+          @error_message = "UnknownError[#{@http_code}]." if @error_message.blank_object?
           super("#{@error_message} (error code: #{@error_code}) ")
         end
 
